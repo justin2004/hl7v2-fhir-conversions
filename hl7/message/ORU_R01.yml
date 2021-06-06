@@ -1,0 +1,65 @@
+#
+# (C) Copyright IBM Corp. 2020
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# FHIR Resources to extract from ORU_R01 message
+---
+resources:
+    - resourceName: MessageHeader
+      segment: MSH
+      resourcePath: resource/MessageHeader
+      repeats: false
+      isReferenced: false
+      additionalSegments:
+              - EVN
+   
+
+    - resourceName: Patient
+      segment: PATIENT_RESULT.PATIENT.PID
+      resourcePath: resource/Patient
+      isReferenced: true
+      repeats: false
+      additionalSegments:
+
+      
+    - resourceName: Encounter
+      segment: .PV1
+      group: PATIENT_RESULT.PATIENT.VISIT
+      resourcePath: resource/Encounter
+      isReferenced: true
+      repeats: false
+      additionalSegments:
+          - .PV2
+      
+    - resourceName: Observation
+      segment: .OBSERVATION.OBX
+      group: PATIENT_RESULT.ORDER_OBSERVATION
+      resourcePath: resource/Observation
+      repeats: true
+      isReferenced: true
+      additionalSegments: 
+          - .OBR
+          - .OBSERVATION.NTE
+      
+            
+    - resourceName: Specimen
+      segment: .SPECIMEN.SPM
+      group: PATIENT_RESULT.ORDER_OBSERVATION
+      resourcePath: resource/Specimen
+      repeats: true
+      isReferenced: true
+      additionalSegments:
+          - .OBSERVATION.OBX
+          - .OBSERVATION.NTE
+      
+    - resourceName: DiagnosticReport
+      segment: .OBR
+      group: PATIENT_RESULT.ORDER_OBSERVATION
+      resourcePath: resource/DiagnosticReport
+      repeats: true
+      additionalSegments:
+          - .ORC
+          - .NTE
+      
+  

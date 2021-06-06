@@ -1,0 +1,22 @@
+#
+# (C) Copyright IBM Corp. 2020
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# represents coding system.
+---
+system: 
+     type: SYSTEM_URL
+     valueOf: $system
+
+version:
+     type: STRING
+     valueOf: $version
+
+code: 
+     type: STRING
+     valueOf: $code
+display: 
+     type: STRING
+     valueOf: $display
+

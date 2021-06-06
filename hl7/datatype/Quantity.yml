@@ -1,0 +1,22 @@
+#
+# (C) Copyright IBM Corp. 2020
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+---
+
+value : 
+   type: FLOAT
+   valueOf: $value
+comparator : 
+   type: String
+   valueOf: $comparator
+unit : 
+   type: String
+   valueOf: $unit
+system : 
+   type: URI
+   valueOf: $system
+code : 
+   type: String
+   valueOf: $code

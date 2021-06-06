@@ -1,0 +1,20 @@
+#
+# (C) Copyright IBM Corp. 2020
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# 
+---
+# coding requires code,display and system defined as variables from the resource that calls this resource
+# Uses values of variables passed: $code, $text, $system, $version
+coding:
+    generateList: true
+    valueOf: datatype/Coding
+    expressionType: resource
+    condition: $code NOT_NULL
+
+text:  
+     valueOf: $text
+     condition: $text NOT_NULL
+
+  

@@ -1,0 +1,74 @@
+#
+# (C) Copyright IBM Corp. 2020
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+resourceType: DiagnosticReport
+id:
+   type: STRING
+   valueOf: 'UUID.randomUUID()'
+   expressionType: JEXL
+   
+identifier:
+   valueOf: datatype/Identifier
+   generateList: true
+   expressionType: resource
+   specs: OBR.3
+   
+status:
+   type: DIAGNOSTIC_REPORT_STATUS
+   valueOf: OBR.25
+   expressionType: HL7Spec
+category:
+   valueOf: datatype/CodeableConcept
+   generateList: true
+   expressionType: resource
+   specs: OBR.24
+   vars:
+      code: OBR.24
+code:
+   valueOf: datatype/CodeableConcept
+   expressionType: resource
+   specs: OBR.4
+   required: true
+   vars:
+      code: OBR.4
+encounter:
+   valueOf: datatype/Reference
+   expressionType: resource
+   specs: $Encounter
+   
+subject:
+   valueOf: datatype/Reference
+   expressionType: resource
+   specs: $Patient
+   
+effectiveDateTime:
+   type: DATE_TIME
+   valueOf: OBR.7
+   expressionType: HL7Spec
+
+issued:
+   type: INSTANT
+   valueOf: OBR.22
+   expressionType: HL7Spec
+   
+resultsInterpreter:
+   valueOf: resource/Practitioner
+   generateList: true
+   expressionType: reference
+   specs: OBR.32
+
+specimen:
+   valueOf: datatype/Reference
+   generateList: true
+   expressionType: resource
+   specs: $Specimen
+   useGroup: true
+
+result:
+   valueOf: datatype/Reference
+   generateList: true
+   expressionType: resource
+   specs: $Observation
+   useGroup: true

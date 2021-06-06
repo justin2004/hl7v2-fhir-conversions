@@ -1,0 +1,21 @@
+#
+# (C) Copyright IBM Corp. 2020
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+---
+numerator:
+    valueOf: datatype/Quantity
+    expressionType: resource
+    vars: 
+      value: $numerator
+      unit: $numunit
+
+
+denominator:
+   valueOf: datatype/Quantity
+   expressionType: resource
+   vars: 
+      value: $denominator
+      unit: $denunit
+  

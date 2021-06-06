@@ -1,0 +1,91 @@
+#
+# (C) Copyright IBM Corp. 2020
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+---
+resourceType: Encounter
+id:
+  type: STRING
+  valueOf: 'UUID.randomUUID()'
+  expressionType: JEXL
+
+identifier:
+    valueOf: datatype/Identifier
+    generateList: true
+    expressionType: resource
+    specs: PV1.19
+
+status:
+    type: STRING
+    valueOf: 'GeneralUtils.getEncounterStatus(vars1,vars2,vars3)'
+    required: true
+    expressionType: JEXL
+    vars: 
+      vars1: String, PV1.45
+      vars2: String, PV1.44
+      vars3: String, PV2.16
+
+class:
+    valueOf: datatype/Coding
+    required: true
+    expressionType: resource
+    vars:
+       code: PV1.2
+
+type:
+   valueOf: datatype/CodeableConcept
+   generateList: true
+   expressionType: resource
+   specs: PV1.4 | PV1.18
+
+
+serviceType:
+   valueOf: datatype/CodeableConcept
+   expressionType: resource
+   specs: PV1.10
+
+
+priority:
+   valueOf: datatype/CodeableConcept
+   expressionType: resource
+   specs: PV2.25
+
+
+episodeOfCare:
+   type: STRING
+   valueOf: PV1.54 | PV1.53
+   expressionType: HL7Spec
+
+period: 
+    valueOf: datatype/Period
+    expressionType: resource
+    vars: 
+       start: PV1.44
+       end: PV1.45
+
+length:
+    valueOf: datatype/Duration
+    expressionType: resource
+    vars: 
+      time1: DATE_TIME, PV1.44
+      time2: DATE_TIME, PV1.45
+
+reasonCode:
+    valueOf: datatype/CodeableConcept
+    generateList: true
+    expressionType: resource
+    specs: EVN.4 | PV2.3
+
+
+
+hospitalization:
+    valueOf: secondary/Hospitalization
+    expressionType: resource
+
+subject:
+    valueOf: datatype/Reference
+    expressionType: resource
+    specs: $Patient
+
+

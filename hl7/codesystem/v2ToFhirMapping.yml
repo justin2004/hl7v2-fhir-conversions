@@ -1,0 +1,66 @@
+#
+# (C) Copyright IBM Corp. 2020
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+AllergyIntoleranceCategory:
+   AA: environment
+   DA: medication
+   EA: environment
+   FA: food
+   LA: environment
+   PA: environment
+AllergyIntoleranceCriticality:
+   MI: low
+   MO: low
+   SV: high
+   U: unable-to-assess
+ObservationStatus:
+   C: corrected
+   D: cancelled
+   F: final
+   I: registered
+   P: preliminary
+   W: entered-in-error
+AdministrativeGender:
+   A: other
+   F: female
+   M: male
+   N: unknown
+   O: other
+   U: unknown
+DiagnosticReportStatus:
+   A: partial
+   C: corrected
+   F: final
+   I: unknown
+   O: unknown
+   P: preliminary
+   R: registered
+   S: unknown
+   X: cancelled
+   Y: unknown
+   Z: unknown
+   
+ImmunizationStatus:
+  CP: completed
+  NA: not-done
+  PA: not-done
+  RE: not-done
+  
+MessageReasonEncounter:
+   A01: admit
+   A03: discharge
+   A21: absent
+   A22: return
+   A02: moved
+   A06: moved
+   A07: moved
+   A08: edit
+   A28: edit
+   A31: edit
+
+SpecimenStatus:
+  Y: available
+  N: unavailable
+   
