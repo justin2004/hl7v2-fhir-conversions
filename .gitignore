@@ -11,3 +11,4 @@ pom.xml.asc
 .hg/
 .*.swp
 .*.swo
+src/hl7/.core.clj.swp
