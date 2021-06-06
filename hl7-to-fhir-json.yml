@@ -1,0 +1,15 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  hl7-to-fhir-json:
+    environment:
+      write_debug: true
+      exec_timeout: "30s"
+      read_timeout: "30s"
+      write_timeout: "30s"
+    lang: dockerfile
+    handler: .
+    image: justin2004/hl7-to-fhir-json:latest
+
