@@ -5,5 +5,5 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/java.classpath "1.0.0"]]
-  :resource-paths ["shared-things-1.0.0-jar-with-dependencies.jar" "."]
+  :resource-paths ["built-for-hl7-stuff-shared-things-1.0.0-jar-with-dependencies.jar" "."]
   :repl-options {:init-ns hl7.core})
