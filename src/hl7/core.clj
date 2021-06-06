@@ -1,5 +1,10 @@
 (ns hl7.core)
 
+(defn junk [& {:keys [filename string]}]
+  (print (str "filename is " filename))
+  (print (str "string is " string)))
+
+
 (defn hl7v2-to-fhirjson
   "given an hl7v2 message string (in hat and bar notation) convert it to FHIR json"
   [hl7-message]
@@ -18,6 +23,11 @@
 ; ca.uhn.fhir.util.VersionIndependentConcept
 ; but only this is on the classpath:
 ; ca.uhn.fhir.util.FhirVersionIndependentConcept
+
+; for use with /dev/stdin
+(defn hl7v2-file-to-fhirjson
+  [filename]
+  (spit "/tmp/output.json" (hl7v2-to-fhirjson (slurp filename))))
 
 
 (defn fhirjson-to-fhirrdf
