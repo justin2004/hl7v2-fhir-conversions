@@ -1,4 +1,4 @@
 # hl7
 
-A Clojure library designed to ... well, that part is up to you.
 
+ cat ./sample_unix.hl70 | curl --data-binary @- -v 'http://HOST:8080/function/hl7-to-fhir-json
